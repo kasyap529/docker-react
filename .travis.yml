@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kasyap/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true kasyap/docker-react npm run test
